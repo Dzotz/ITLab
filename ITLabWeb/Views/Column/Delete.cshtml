@@ -1,0 +1,16 @@
+﻿@using ITLab.Classes.Database
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Column";
+}
+
+<form method="post" action="~/Column/Delete">
+    <p>
+        <h3>You sure you want to delete @ViewBag.name ?</h3>
+        <input hidden value="@ViewBag.tabName" name="tabName" />
+        <input hidden value="@ViewBag.name" name="name" />
+    </p>
+    <p>
+        <input type="submit" value="Видалити" />
+    </p>
+</form>

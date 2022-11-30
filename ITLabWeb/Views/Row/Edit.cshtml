@@ -1,0 +1,15 @@
+﻿<form method="post" action="~/Row/Edit">
+    <p>
+        <label>Значення:</label><br />
+        @Html.TextBox("values")
+    </p>
+    <p>
+        <input hidden name="tabName" value="@ViewBag.tabName" />
+    </p> 
+    <p>
+        <input hidden name="rowId" value="@ViewBag.id" />
+    </p>
+    <p>
+        <input type="submit" value="Створити" />
+    </p>
+</form>

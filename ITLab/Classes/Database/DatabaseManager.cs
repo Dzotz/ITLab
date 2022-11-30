@@ -279,9 +279,10 @@ namespace ITLab.Classes.Database
                     vals = vals.Trim(';');
                     streamWriter.WriteLine(vals);
                 }
-                streamWriter.Close();
             }
-            
+            streamWriter.Close();
+
+
         }
 
         public void FileToDatabase(Stream path)

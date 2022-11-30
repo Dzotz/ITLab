@@ -1,0 +1,20 @@
+﻿@using ITLab.Classes.Database
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Database";
+}
+
+<h3>@ViewBag.errMsg</h3>
+@if (ViewBag.Database != null)
+{
+    <a class="btn btn-primary" asp-controller="Table" asp-action="Create">Add Table</a>
+    <ul>
+        @foreach (Table tab in ViewBag.Database.Tables)
+        {
+            <li>@tab.Name <br> <a class="btn btn-secondary" asp-controller="Table" asp-action="Index" asp-route-name="@tab.Name">View</a> | <a class="btn btn-secondary"asp-controller="Table" asp-action="Delete" asp-route-name="@tab.Name">Delete</a></li>
+
+        }
+    </ul>
+}
+<a class="btn btn-primary" asp-controller="Database" asp-action="Create">Create Database</a>
+<a class="btn btn-primary" asp-controller="Table" asp-action="Multiply">Multiply Database</a>

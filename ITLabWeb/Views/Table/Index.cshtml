@@ -1,0 +1,38 @@
+﻿@using ITLab.Classes.Database
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Table";
+}
+
+<h3>@ViewBag.errMsg</h3>
+<table>
+    <tr>
+        @foreach (Column col in ViewBag.Table.Columns)
+        {
+            <th><a class="btn btn-secondary" asp-controller="Column" asp-action="Delete" asp-route-tabName="@ViewBag.Table.Name" asp-route-name="@col.Name"> Видалити </a></th>
+        }
+    </tr>
+    <tr>
+    @foreach(Column col in ViewBag.Table.Columns){
+        <th>@col.Name</th>
+    }
+    </tr>
+    @{
+        int i = 0;
+    }
+    @foreach(Row row in ViewBag.Table.Rows){
+        
+        <tr>
+           
+            @foreach(string val in row.Values){
+                <td>@val</td>
+            }
+            <td><a class="btn btn-primary" asp-controller="Row" asp-action="Edit" asp-route-tabName="@ViewBag.Table.Name" asp-route-id="@i">Редагувати</a><a class="btn btn-primary" asp-controller="Row" asp-action="Delete" asp-route-tabName="@ViewBag.Table.Name" asp-route-id="@i">Видалити</a></td>
+        </tr>
+        i++;
+    }
+</table>
+
+<a class = "btn btn-primary" asp-controller="Column" asp-action="Create" asp-route-tabName = "@ViewBag.Table.Name"> Додати колонку </a> 
+<a class="btn btn-primary" asp-controller="Column" asp-action="CreateSet" asp-route-tabName="@ViewBag.Table.Name"> Додати колонку множини </a>
+<a class="btn btn-primary" asp-controller="Row" asp-action="Create" asp-route-tabName="@ViewBag.Table.Name">Додати рядок</a>

@@ -1,0 +1,24 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<form method="post" action="~/Column/Create">
+    <p>
+        <label>Назва</label><br />
+        @Html.TextBox("name")
+    </p>
+    <p>
+        <label>Тип:</label><br/>
+        <select name="type">
+            <option value="String">String</option>
+            <option value="Integer">Integer</option>
+            <option value="Char">Char</option>
+            <option value="Real">Real</option>
+            <option value="Email">Email</option>
+        </select>
+    </p>
+    <p>
+        <input hidden name="tabName" value="@ViewBag.tabName"/>
+    </p>
+    <p>
+        <input type="submit" value="Створити" />
+    </p>
+</form>
